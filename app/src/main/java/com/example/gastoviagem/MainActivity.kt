@@ -23,6 +23,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun calculate() {
-        Toast.makeText(this, "Fui clicado", Toast.LENGTH_LONG).show()
+        val distance = binding.editDistance.text.toString().toFloat()
+        val price = binding.editPrice.text.toString().toFloat()
+        val autonomy = binding.editAutonomy.text.toString().toFloat()
+
+        val totalValue = (distance * price) / autonomy
+        binding.textValueTotal.setText("R$ ${"%.2f".format(totalValue)}")
     }
 }
