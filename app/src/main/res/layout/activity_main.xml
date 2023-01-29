@@ -9,6 +9,7 @@
     tools:context=".MainActivity">
 
     <EditText
+        android:id="@+id/edit_distance"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/distance" />
@@ -20,6 +21,7 @@
         android:text="@string/total_kilometers" />
 
     <EditText
+        android:id="@+id/edit_price"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -32,6 +34,7 @@
         android:text="@string/price_liter" />
 
     <EditText
+        android:id="@+id/autonomy"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -53,6 +56,7 @@
         android:textSize="16sp" />
 
     <TextView
+        android:id="@+id/text_value_total"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -63,6 +67,7 @@
         android:textSize="32sp" />
 
     <Button
+        android:id="@+id/button_calculate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
