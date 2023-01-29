@@ -17,17 +17,28 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(view: View) {
-        if(view.id == R.id.button_calculate) {
+        if (view.id == R.id.button_calculate) {
             calculate()
         }
     }
 
-    private fun calculate() {
-        val distance = binding.editDistance.text.toString().toFloat()
-        val price = binding.editPrice.text.toString().toFloat()
-        val autonomy = binding.editAutonomy.text.toString().toFloat()
+    private fun isValid(): Boolean {
+        return (binding.editDistance.text.toString() != ""
+                && binding.editPrice.text.toString() != ""
+                && binding.editAutonomy.text.toString() != ""
+                && binding.editAutonomy.text.toString().toFloat() != 0f)
+    }
 
-        val totalValue = (distance * price) / autonomy
-        binding.textValueTotal.setText("R$ ${"%.2f".format(totalValue)}")
+    private fun calculate() {
+        if(isValid()) {
+            val distance = binding.editDistance.text.toString().toFloat()
+            val price = binding.editPrice.text.toString().toFloat()
+            val autonomy = binding.editAutonomy.text.toString().toFloat()
+
+            val totalValue = (distance * price) / autonomy
+            binding.textValueTotal.setText("R$ ${"%.2f".format(totalValue)}")
+        } else {
+            Toast.makeText(this,R.string.validation_fill_all_fields, Toast.LENGTH_LONG).show()
+        }
     }
 }
